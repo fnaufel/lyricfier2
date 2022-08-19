@@ -22,7 +22,7 @@ func (h *Spotify) Init() {
 		panic(err)
 	}
 	h.conn = conn
-	h.bus = conn.Object("org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2")
+	h.bus = conn.Object("org.mpris.MediaPlayer2.ncspot", "/org/mpris/MediaPlayer2")
 	h.bus.AddMatchSignal("org.freedesktop.DBus.Properties", "PropertiesChanged", dbus.WithMatchObjectPath(h.bus.Path()))
 	h.ch = make(chan *dbus.Signal)
 	h.conn.Signal(h.ch)

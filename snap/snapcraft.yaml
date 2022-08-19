@@ -1,18 +1,19 @@
-name: lyricfier
+name: lyricfierfna
 base: core18
 version: '0.4'
 summary: Lyrics search for Spotify app
 description: |
-  Lyricfiers lyrics for Spotify.
+  Lyricfiers lyrics for Spotify. Modified by fnaufel to work with
+  ncspot.
 grade: stable
-confinement: strict
+confinement: classic
 environment:
   TMPDIR: $XDG_RUNTIME_DIR
 
 parts:
-  lyricfier:
+  lyricfierfna:
     plugin: go
-    go-importpath: github.com/emilioastarita/lyricfier2
+    go-importpath: github.com/fnaufel/lyricfier2
     source: .
     source-type: local
     build-packages:
@@ -28,9 +29,9 @@ parts:
       - libindicator3-7
 
 apps:
-  lyricfier:
+  lyricfierfna:
     extensions: [gnome-3-28]
-    command: bin/lyricfier
+    command: bin/lyricfierfna
     plugs:
       - mpris
       - network
